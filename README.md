@@ -20,14 +20,14 @@
 
   #### How HTTPS Work ?
 
-  1- HTTPS requires a TLS certificate to be installed on your server.
-  2- TSl storage key (public & privet) created randomly generated in your server The public key is verified with the client and the private key used in the decryption process
+  - HTTPS requires a TLS certificate to be installed on your server.
+  - TSl storage key (public & privet) created randomly generated in your server The public key is verified with the client and the private key used in the decryption process
 
 - # Why is this important to implement in your projects?
-  1- Protect Your Users Privacy.
-  2- Protect your revenue : the HTTPS client over a website using HTTP. This could become a stronger signal in the future(as google say in 2014 ).
-  3- in 2017 chrome also gave users a “Not Secure” warning for any HTTP websites'
-  4- in HTTPS users will faster browse speeds.
+  - Protect Your Users Privacy.
+  - Protect your revenue : the HTTPS client over a website using HTTP. This could become a stronger signal in the future(as google say in 2014 ).
+  - in 2017 chrome also gave users a “Not Secure” warning for any HTTP websites'
+  - in HTTPS users will faster browse speeds.
 
 #### Demo how to generate certificates and use them in a node project
 
@@ -59,26 +59,26 @@
 
   - #### Stateful session
   - #### Advantages
-    1- Revoke the session anytime
-    2- Easy to implement and manage for one-session-sever scenario
-    3- Session data can be changed later (assume that for a one-session-sever, no inconsistent problem)
+    - Revoke the session anytime
+    - Easy to implement and manage for one-session-sever scenario
+    - Session data can be changed later (assume that for a one-session-sever, no inconsistent problem)
 
 - #### Disadvantages
-  1- Increasing server overhead: As the number of logged-in users increases, the more server resources are occupied.
-  2- Difficult for mobile device e applications to use your credentials
+  - Increasing server overhead: As the number of logged-in users increases, the more server resources are occupied.
+  - Difficult for mobile device e applications to use your credentials
 
 #### Stateless session
 
 - #### Advantages
 
-  1- Lower server overhead
-  2- Easy to scale
-  3- Good to integrate with 3rd party application
+  - Lower server overhead
+  - Easy to scale
+  - Good to integrate with 3rd party application
 
 - #### Disadvantages
-  1- Cannot revoke the session anytime
-  2- Relatively complex to implement for one-session-server scenario
-  3- Session data cannot be changed until its expiration time
+  - Cannot revoke the session anytime
+  - Relatively complex to implement for one-session-server scenario
+  - Session data cannot be changed until its expiration time
 
 ---
 
@@ -91,23 +91,24 @@
 - #### What are the different ways of managing sessions in express?
 
   by using one of these packages :
-  1- express-session.
-  2- client-sessions.
-  3- cookie session.
+
+  - express-session.
+  - client-sessions.
+  - cookie session.
 
 - #### Create a minimal example of how to set up a session (FYI: pseudo code is fine)
-  1- install express-session.
-  //npm install express-session
-  2- require express-session package.
-  const session = require('express-session')
-  const app = express()
-  app.set('trust proxy', 1) // trust first proxy
-  app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-  }))
+  - install express-session.
+    //npm install express-session
+  - require express-session package.
+    const session = require('express-session')
+    const app = express()
+    app.set('trust proxy', 1) // trust first proxy
+    app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+    }))
 
 ---
 
@@ -115,17 +116,17 @@
 
 - #### What are the following types of attack?
 
-  1- Man In The Middle (MITM):
-  A man-in-the-middle (MitM) attack is when an attacker intercepts communications between two parties either to secretly eavesdrop or modify traffic traveling between the two.
+  - Man In The Middle (MITM):
+    A man-in-the-middle (MitM) attack is when an attacker intercepts communications between two parties either to secretly eavesdrop or modify traffic traveling between the two.
 
-  2- Cross Site Scripting (XSS):
-  Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
-  3- Cross Site Request Forgery (CSRF)
-  Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit a request to a Web application against which they are currently authenticated.
+  - Cross Site Scripting (XSS):
+    Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
+  - Cross Site Request Forgery (CSRF)
+    Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit a request to a Web application against which they are currently authenticated.
 
 - #### How can you defend against each of them?
 
-  #### 1- how to avoid MIMT:
+  #### how to avoid MIMT:
 
   - Be wary of links that you click to avoid phishing attempts that lead to MiTM attacks.
   - Keep your operating system and your browser always up to date. This way, the attackers will not be able to use exploits to install malware on your computer.
@@ -136,7 +137,7 @@
 
   - Make sure that the DNS servers (DNS caches) that you use are secure. Check the configuration on your router (DNS cache addresses are usually provided via DHCP). If in doubt, use Google public DNS caches: 8.8.8.8 and 8.8.4.4.
 
-#### 2- how to avoid Cross Site Scripting (XSS) :
+#### how to avoid Cross Site Scripting (XSS) :
 
 - Enabling inline code
   As a first option, you could enable the execution of inline scripts. You can do this by adding the 'unsafe-inline' source to the allowed source list
@@ -145,7 +146,7 @@
 - Using nonce
   If you have noticed, the error message provided by Chrome Dev Tools suggests another possible solution to enable script blocks.
 
-#### 3- how to avoid Cross Site Request Forgery (CSRF) :
+#### how to avoid Cross Site Request Forgery (CSRF) :
 
 - Using a secret cookie
   Remember that all cookies, even the secret ones, will be submitted with every request.
